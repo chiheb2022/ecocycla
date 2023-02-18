@@ -78,9 +78,22 @@
             </a>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="#hero">Accueil</a></li><!--hedhom ely mahtoutin fel page el asleniya home -->
-                    <li><a href="#about">A propos de nous</a></li><!-- about -->
-                    <li><a href="#services">Nos Services</a></li><!-- services -->
+                    <li><a href="/#hero">Accueil</a></li><!--hedhom ely mahtoutin fel page el asleniya home -->
+                    <li><a href="/#about">A propos de nous</a></li><!-- about -->
+                    <li class="dropdown">
+                        <a href="/#services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nos Services <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/produits">Produits</a></li>
+                            <li><a href="/panier">panier</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/don">Don</a></li>
+                            <li><a href="/collection">Collection</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <!-- services -->
                     {#<li><a href="magasin.html.twig">Magasin</a></li><!-- portfolio --> #}
                     {# <li><a href="don.html.twig"></a></li><!-- team -->#}
                     {# <li><a href="blog.html">Blog et Article</a></li><!-- blog --> #}
@@ -93,7 +106,20 @@
                         </ul>
                     </li>
                     #}
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+
+                    <!-- Si l'utilisateur est connecté, afficher l'icône de profil -->
+                   <li> {% if is_granted('ROLE_USER') %}
+                        <a href="/profile">
+                            <i class="fas fa-user">profile</i>
+                        </a>
+                        <!-- Sinon, afficher l'icône de connexion -->
+                    {% else %}
+                        <a href="/login">
+                            <i class="fas fa-sign-in-alt">login</i>
+                        </a>
+                    {% endif %}
+                   </li>
                 </ul>
             </nav><!-- .navbar -->
 
