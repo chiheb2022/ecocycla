@@ -32,5 +32,53 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/produits', name: 'produits')]
+    public function produits(): Response
+    {
+        return $this->render('front_office/produits.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+    #[Route('/blog', name: 'blog')]
+    public function blog(): Response
+    {
+        return $this->render('front_office/blog.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+    #[Route('/login', name: 'login')]
+    public function login(): Response
+    {
+        return $this->render('front_office/login.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    #[Route('/profile', name: 'profile')]
+    public function profile(): Response
+    {
+        return $this->render('front_office/profile.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+    #[Route('/panier', name: 'panier')]
+    public function panier(): Response
+    {
+        return $this->render('front_office/panier.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+
+
+
+
 
 }
