@@ -1,0 +1,52 @@
+{% extends 'base1.html.twig' %}
+{% block title %} Magasin  {% endblock %}
+{% block body %}
+    <section id="portfolio" class="portfolio sections-bg">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Magasin</h2>
+                <p>Bienvenue dans notre magasin biologique</p>
+            </div>
+
+            <div class="portfolio-isotope aos-init aos-animate" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+
+                <div>
+                    {%for produits in produits %}
+                        <ul class="portfolio-flters">
+                            <li  class="filter-active"><a href="{{ path('produits_par_categorie',{id:produits.id}) }}"> {{ produits.Categorie.nomC}}</a></li>
+
+                        </ul>
+                        {#<div>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('produits_par_categorie',{id:p.id}) }}"> {{ p.Categorie.nomC }}</a></li>
+                </ol>
+               </div>  #}
+                    {% endfor %}
+                </div>
+                <div class="row gy-4 portfolio-container" style="position: relative; height: 2803.56px;">
+                    {%for produits in produits %}
+
+                        <div class="col-xl-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 0px; top: 0px;">
+                            <div class="portfolio-wrap">
+                                <a> <img style="width: 456px; height: 297px; padding: 5px;  " src="{{ asset('uploads/'~produits.image) }}"/></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="portfolio-details.html" title="More Details"> {{ produits.nomP }}</a></h4>
+                                    <p>{{ produits.descriptionP }}</p>
+                                    <p>{{ produits.prixP }}</p>
+
+                                </div>
+                            </div>
+
+                        </div><!-- End Portfolio Item -->
+                    {% endfor %}
+
+
+
+                </div><!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
